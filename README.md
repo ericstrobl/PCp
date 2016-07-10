@@ -1,6 +1,6 @@
 # PCp
 
-This is a MATLAB implementation of PC with p-values.
+This is a MATLAB implementation of PC with p-values (PC-p). The algorithm returns edge-specific p-values for all edges in the CPDAG using order-independent skeleton discovery (as in PC-stable), v-structure orientation, and orientation rule application.
 
 - PC_with_pval.m is the main file
 
