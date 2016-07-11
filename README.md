@@ -2,7 +2,7 @@
 
 This is a MATLAB implementation of PC with p-values (PC-p). The algorithm returns edge-specific p-values for all edges in the CPDAG by:
 
-1. Decomposing complex edge-specific hypothesis tests into primitive conditional independence tests, and
+1. Deriving complex edge-specific hypothesis tests by conjoining and disjoining the results of primitive conditional independence tests, and
 2. Using order-independent (a) skeleton discovery (as in PC-stable), (b) v-structure orientation, and (c) orientation rule application.
 
 This work was inspired by the idea of getting at a "causal p-value."
