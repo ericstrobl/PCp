@@ -41,13 +41,18 @@ while ~done
   done = 1;
   [X,Y] = find(G); 
   
+%   sort(r_idx(X))
+  
   for k1=1:size(G,1), % changing conditioning sets according to PC-stable's procedure
       nbrs2{k1} = neighbors2(G, k1);  %*******
   end %*******
+
+%  sort(r_idx(nbrs2{r_idx==10}))
   
   for i=1:length(X)
     x = X(i); y = Y(i);
-    nbrs = mysetdiff(nbrs2{y}, x);      
+    nbrs = mysetdiff(nbrs2{y}, x);   
+    
     if length(nbrs) >= ord && G(x,y) ~= 0
       done = 0;
       SS = nchoosek(nbrs,ord);

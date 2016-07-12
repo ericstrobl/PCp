@@ -8,12 +8,12 @@ max_num=max(max(num_struc));
 for i=1:length(X)
   x = X(i);
   y = Y(i);
-  Z = find(G(y,:));
+  Z = find(G(y,:)); %get neighbors of y
   Z = mysetdiff(Z, x);
   for z=Z(:)'
-    if G(x,z)==0 && ~ismember(y, sep{x,z}) && ~ismember(y, sep{z,x}),
+    if G(x,z)==0 && ~ismember(y, sep{x,z}),
         
-      if (pdag(x,y) ~= -1 || pdag(z,y) ~= -1),
+      if ~(pdag(x,y) == -1 && pdag(z,y) == -1),
 
           pdag(x,y) = -1; 
           pdag(z,y) = -1; 
@@ -21,7 +21,7 @@ for i=1:length(X)
           % p-value
           p2=[];
           ii1 = find(G(x,:)>0); % neighbors of x
-          ii1 = mysetdiff(ii1,x);
+%           ii1 = mysetdiff(ii1,x);
           SS1a=[];
           for kk=1:k,
               if length(ii1)>1,
@@ -37,7 +37,7 @@ for i=1:length(X)
           end
   
           ii2 = find(G(z,:)>0); % neighbors of z
-          ii2 = mysetdiff(ii2,z);
+%           ii2 = mysetdiff(ii2,z);
           SS2a=[];
           for kk=1:k,
               if length(ii2)>1,
@@ -83,6 +83,7 @@ for i=1:length(X)
   end
 end
 
+%if edge is directed, remove undirected edge
 idx=find(pdag==-1);
 for t=1:length(idx),
     [rr,cc]=ind2sub(size(pdag),idx(t));

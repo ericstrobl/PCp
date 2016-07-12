@@ -101,18 +101,25 @@ while ~isequal(pdag, old_pdag)
     for t=1:length(idx),
         [i,j]= ind2sub(size(G),idx(t));
         if pdag2(i,j)==-1 && pdag2(j,i)==-1,  
-            pdag2(i,j)=2; % claim bidirected edges
+            pdag2(i,j)=2; % clamp bidirected edges
             pdag2(j,i)=2;
             G(i,j)=2;
             G(j,i)=2;
             
             for g=1:size(pdag_u{i,j},1), % clamp other edges in orientation rules
                 temp=pdag_u{i,j};
-                pdag2(temp(g,:))=2;
+                pdag2([temp(g,1), temp(g,2)])=2;
+                pdag2([temp(g,2), temp(g,1)])=2;
+                G([temp(g,1), temp(g,2)])=2;
+                G([temp(g,2), temp(g,1)])=2;
+%                 pdag2(temp(g,:))=2;
             end
             for g=1:size(pdag_u{j,i},1),
                 temp=pdag_u{j,i};
-                pdag2(temp(g,:))=2;  
+                pdag2([temp(g,1), temp(g,2)])=2;
+                pdag2([temp(g,2), temp(g,1)])=2;  
+                G([temp(g,1), temp(g,2)])=2;
+                G([temp(g,2), temp(g,1)])=2;
             end
         end
     end
@@ -120,7 +127,7 @@ while ~isequal(pdag, old_pdag)
   idxLa=find(~cellfun(@isempty,cell_p_d));  %******
   for t=1:length(idxLa),  %******
       [r,c]=ind2sub(size(cell_p),idxLa(t));
-      if pdag2(idxLa(t))~=2, % if unidirected, replace p-values, increase num_struc
+      if pdag2(idxLa(t))~=2, % if not bidirected, replace p-values, increase num_struc
           cell_p{r,c}=max([cell_p_d{r,c}, cell_p{r,c}]);  %****** transfer all temporary p-values to permanent p-values
           max_num=max_num+1;
           num_struc(r,c)=max_num;
