@@ -3,6 +3,10 @@ clc
 
 %load a DAG, generate a Gaussian dataset
 load DAG_graph1.mat
+%load DAG_graph2.mat
+%load DAG_graph3.mat
+%load DAG_graph4.mat
+%load DAG_graph5.mat
 
 d = size(graph,2);
 data=create_dataset_dag(graph,1000,randn(d,d));
