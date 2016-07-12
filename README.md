@@ -13,9 +13,9 @@ Results derived from noisy data should have some measure of confidence associate
 
 - PC_with_pval.m is the main function.
 
-- See pcp_demo.m for a demo.
+- See pcp_demo.m for a demo
 
-- I have included 5 example DAGs that you can play with.
+- Includes 5 example DAGs
 
 Please let me know if you find any bugs by emailing me at ericvonstrobl at google's email dot com.
 
