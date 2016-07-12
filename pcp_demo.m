@@ -17,7 +17,7 @@ data=create_dataset_dag(graph,5000,randn(d,d));
 [pdag,p_val,IDs] = PC_with_pval(@rho_test_PC, [], [], size(data,2),data);
 
 %control the FDR at a given FDR level q
-q=0.10;
+q=0.05;
 alpha_star = get_alpha_star(p_val, IDs, q)
 
 %estimate the FDR at a given alpha threshold
@@ -31,7 +31,7 @@ FDR_est=get_FDR(p_val,IDs,alpha)
 [pdag_sk, sep_sk, p_val_sk, IDs_sk] = stable_skeleton_discovery(@rho_test_PC, [], [], size(data,2), data);
 
 %control the FDR at a given FDR level q
-q=0.10;
+q=0.05;
 alpha_star = get_alpha_star(p_val_sk, IDs_sk, q)
 
 %estimate the FDR at a given alpha threshold
