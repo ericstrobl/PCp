@@ -9,7 +9,7 @@ PC-p subsequently controls the false discovery rate across every edge.
 
 This work was inspired by the idea of getting at a "causal p-value."
 
-- PC_with_pval.m is the ``main'' main file.
+- PC_with_pval.m is the main file.
 
 - See pcp_demo.m for a demo.
 
