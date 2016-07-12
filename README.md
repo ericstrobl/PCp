@@ -13,6 +13,6 @@ PC-p subsequently controls the false discovery rate across every edge, so you do
 
 - See pcp_demo.m for a demo. Also demonstrates how to return p-values for the skeleton, if you don't want the algorithm to infer causal directions.
 
-Please let me know if find any bugs or have any suggestions by emailing me at ericvonstrobl at google's email dot com.
+Please let me know if you find any bugs or have any suggestions by emailing me at ericvonstrobl at google's email dot com.
 
 Coded using scripts from the Bayes Net Toolbox as a base (https://github.com/bayesnet/bnt).
