@@ -5,9 +5,7 @@ This is a MATLAB implementation of PC with p-values (PC-p). The algorithm return
 1. Deriving complex edge-specific hypothesis tests by conjoining and disjoining the results of primitive conditional independence tests, and
 2. Using modified (a) skeleton discovery, (b) v-structure orientation, and (c) orientation rule application procedures. 
 
-PC-p subsequently controls the false discovery rate across every edge. 
-
-This work was inspired by the idea of getting at a "causal p-value."
+PC-p subsequently controls the false discovery rate across every edge. I completed this project because I really wanted to get at a "causal p-value."
 
 - PC_with_pval.m is the ``main'' main file.
 
