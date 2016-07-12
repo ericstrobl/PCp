@@ -11,7 +11,7 @@ PC-p subsequently controls the false discovery rate across every edge, so you do
 
 - PC_with_pval.m is the ``main'' main function.
 
-- See pcp_demo.m for a demo. Also demonstrates how to return p-values for the skeleton, if you don't want to infer causal directions.
+- See pcp_demo.m for a demo. Also demonstrates how to return p-values for the skeleton, if you don't want the algorithm to infer causal directions.
 
 Please let me know if you find any bugs by emailing me at ericvonstrobl at google's email dot com.
 
