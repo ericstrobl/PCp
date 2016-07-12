@@ -20,7 +20,7 @@ data=create_dataset_dag(graph,1000,randn(d,d));
 q=0.10;
 alpha_star = get_alpha_star(p_val, IDs, q)
 
-%estimate the FDR with a given alpha_threshold
+%estimate the FDR at a given alpha threshold
 alpha=0.05;
 FDR_est=get_FDR(p_val,IDs,alpha)
 
@@ -34,7 +34,7 @@ FDR_est=get_FDR(p_val,IDs,alpha)
 q=0.10;
 alpha_star = get_alpha_star(p_val_sk, IDs_sk, q)
 
-%estimate the FDR with a given alpha_threshold
+%estimate the FDR at a given alpha threshold
 alpha=0.05;
 FDR_est=get_FDR(p_val_sk,IDs_sk,alpha)
 
