@@ -25,7 +25,7 @@ function [pdag,p_val,IDs] = PC_with_pval(cond_indep, alpha, k, d, varargin)
 if isempty(alpha), alpha=0.20; end
 if isempty(k), k=3; end
 
-[G, sep, cell_p, num_struc] = stable_skeleton_discovery(@rho_test_PC, d, k, alpha, varargin{:}); %stable skeleton discovery
+[G, sep, cell_p, num_struc] = stable_skeleton_discovery(@rho_test_PC, alpha, k, d, varargin{:}); %stable skeleton discovery
 
 [pdag, cell_p2, num_struc2] = get_v_structures2(G, sep, cell_p, num_struc, k, cond_indep, varargin{:}); % get v-structures, unconstrained edge directions
 
