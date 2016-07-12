@@ -7,7 +7,7 @@ This is a MATLAB implementation of PC with p-values (PC-p) algorithm. The algori
 
 PC-p subsequently controls the false discovery rate across every edge, so you don't have to worry about multiple comparison problems.
 
-Results derived from noisy data should have some measure of confidence associated with them. I completed this project because I really wanted to discover a measure of confidence for causation. What better measure of confidence than a "causal p-value?" I hope that this algorithm will make PC's results live up to modern standards of scientific reporting.
+Results derived from noisy data should have some measure of confidence associated with them. I completed this project because I really wanted to discover a measure of confidence for causation. What better measure of confidence than a "causal p-value?" I think that this algorithm makes PC's results live up to modern standards of scientific reporting.
 
 # The Files
 
