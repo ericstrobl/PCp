@@ -5,7 +5,7 @@ This is a MATLAB implementation of PC with p-values (PC-p) algorithm. The algori
 1. Deriving complex edge-specific hypothesis tests by conjoining and disjoining the results of primitive conditional independence tests, and
 2. Using modified (a) skeleton discovery, (b) v-structure orientation, and (c) orientation rule application procedures to help ensure that the p-value estimates are valid.
 
-PC-p subsequently controls the false discovery rate across every edge. 
+PC-p subsequently controls the false discovery rate across every edge, so you don't have to worry about multiple comparison problems.
 
 Results derived from noisy data should have some measure of confidence associated with them. I completed this project because I really wanted to discover a measure of confidence for causation. What better measure of confidence than a "causal p-value?" I hope that this algorithm will make PC's results live up to modern standards of scientific reporting.
 
