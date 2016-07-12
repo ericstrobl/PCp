@@ -15,8 +15,6 @@ Results derived from noisy data should have some measure of confidence associate
 
 - See pcp_demo.m for a demo. Also demonstrates how to return p-values for the skeleton, if you don't want to infer causal directions.
 
-- Includes 5 example DAGs
-
 Please let me know if you find any bugs by emailing me at ericvonstrobl at google's email dot com.
 
 Coded using scripts from the Bayes Net Toolbox as a base (https://github.com/bayesnet/bnt).
