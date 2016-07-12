@@ -11,9 +11,9 @@ Results derived from noisy data should have some measure of confidence associate
 
 # The Files
 
-- PC_with_pval.m is the main function.
+- PC_with_pval.m is the ``main'' main function.
 
-- See pcp_demo.m for a demo
+- See pcp_demo.m for a demo. Also demonstrates how to return p-values for the skeleton, if you don't want to infer causal directions.
 
 - Includes 5 example DAGs
 
