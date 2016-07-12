@@ -1,4 +1,4 @@
-function [G, sep, cell_p, num_struc] = stable_skeleton_discovery(cond_indep, d, k, alpha, varargin)
+function [G, sep, p_val, IDs] = stable_skeleton_discovery(cond_indep, alpha, k, d, varargin)
 %
 %
 % Skeleton discovery procedure of PC-p
@@ -8,17 +8,17 @@ function [G, sep, cell_p, num_struc] = stable_skeleton_discovery(cond_indep, d, 
 %
 % Inputs:
 % 1) cond_indep = conditional independence test
-% 2) n = number of variables
-% 3) d = maximum conditioning set size.  If empty, uses default value of 3.
-% 4) alpha = alpha threshold. If empty, uses default value of 0.20.
+% 2) alpha = alpha threshold. If empty, uses default value of 0.20.
+% 3) k = maximum conditioning set size.  If empty, uses default value of 3.
+% 4) d = number of variables
 % 5) varargin = stuff necessary for the conditional independence test
 % specified with cond_indep (e.g., the data, hyperparameters)
 %
 % Outputs:
 % 1) G = skeleton. G(i,j)=1 and G(j,i)=1 iff adjacency between i and j
 % 2) sep = separating sets
-% 3) cell_p = p-values of each edge
-% 4) num_struc = cell that keeps track of number of hypothesis tests
+% 3) p_val = p-values of each edge
+% 4) IDs = cell that keeps track of number of hypothesis tests
 %
 % Example call: 
 % [Gt, sep, cell_pt, num_struct] = get_skeleton_lin_stable(@rho_test_PC, size(data,2), 3, [], data);
@@ -93,3 +93,7 @@ for t=1:length(idx),
 end
 
 num_struc=assign_iden(G);
+
+
+p_val=cell_p;
+IDs=num_struc;
