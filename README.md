@@ -9,8 +9,10 @@ PC-p subsequently controls the false discovery rate across every edge.
 
 This work was inspired by the idea of getting at a "causal p-value."
 
-- PC_with_pval.m is the main file.
+- PC_with_pval.m is the ``main'' main file.
 
 - See pcp_demo.m for a demo.
+
+Please let me know if you find any bugs by emailing me at ericvonstrobl at google's email dot com.
 
 Coded using scripts from the Bayes Net Toolbox as a base (https://github.com/bayesnet/bnt).
