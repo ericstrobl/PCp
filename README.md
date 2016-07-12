@@ -11,7 +11,7 @@ Results derived from noisy data should have some measure of confidence associate
 
 # The Files
 
-- PC_with_pval.m is the ``main'' main file.
+- PC_with_pval.m is the main function.
 
 - See pcp_demo.m for a demo.
 
