@@ -10,7 +10,7 @@ load DAG_graph1.mat
 
 
 d = size(graph,2);
-data=create_dataset_dag(graph,1000,randn(d,d));
+data=create_dataset_dag(graph,5000,randn(d,d));
 
 %%
 %get pdag with raw p-values using Spearman's rho
