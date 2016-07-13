@@ -12,9 +12,9 @@ The associated manuscript is currently under submission.
 # The Files
 There are basically three functions: 
 
-1. orig_PC_with_pval - original PC but with p-value computations added,
-2. PC_with_pval - a conservative algorithm that takes extra measures in order to ensure that the p-value bounds are correct with finite sample sizes; best for publication quality results,
-3. stable_skeleton_discovery - just skeleton discovery (no edge orientations) with p-values; suitable in scenarios where you have time information to automatically orient the edges.
+1. orig_PC_with_pval -- original PC but with p-value computations added,
+2. PC_with_pval -- a conservative algorithm that takes extra measures in order to ensure that the p-value bounds are correct with finite sample sizes; best for publication quality results,
+3. stable_skeleton_discovery -- just skeleton discovery (no edge orientations) with p-values; suitable in scenarios where you have time information to automatically orient the edges.
 
 See pcp_demo.m for a demo of all three functions. The demo also demonstrates how to control or estimate the FDR for each of the above functions.
 
