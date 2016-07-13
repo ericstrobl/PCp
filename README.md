@@ -10,10 +10,12 @@ PC-p subsequently controls the false discovery rate across every edge, so you do
 The associated manuscript is currently under submission.
 
 # The Files
+There are basically three functions: 
+1. orig_PC_with_pval - original PC but with p-value computations added,
+2. PC_with_pval - a conservative algorithm that takes extra measures in order to ensure that the p-value bounds are correct with finite sample sizes; best for publication quality results,
+3. stable_skeleton_discovery - just skeleton discovery (no edge orientations) with p-values; suitable in scenarios where you have time information to automatically orient the edges.
 
-- PC_with_pval.m is the ``main'' main function.
-
-- See pcp_demo.m for a demo. Also demonstrates how to return p-values for the skeleton, if you don't want the algorithm to infer causal directions.
+See pcp_demo.m for a demo of all three functions. The demo also demonstrates how to control or estimate the FDR for each of the above functions.
 
 Please let me know if you find any bugs or have any suggestions by emailing me at ericvonstrobl at google's email dot com.
 
