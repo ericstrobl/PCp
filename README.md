@@ -10,7 +10,7 @@ PC-p subsequently controls the false discovery rate across every edge, so you do
 The associated manuscript is currently under submission.
 
 # The Files
-There are basically three functions: 
+There are basically three main functions: 
 
 1. orig_PC_with_pval -- original PC but with p-value computations added,
 2. PC_with_pval -- a conservative algorithm that takes extra measures in order to ensure that the p-value bounds are correct with finite sample sizes; best for publication quality results,
