@@ -13,7 +13,7 @@ The associated manuscript is currently under submission.
 There are basically two main functions: 
 
 1. PC_with_pval -- this is PC-p,
-3. stable_skeleton_discovery -- PC-stable's skeleton discovery procedure (no edge orientations) with p-values; suitable for example when you have time information to automatically orient the edges.
+3. stable_skeleton_discovery -- PC-stable's skeleton discovery procedure with p-values; suitable, for example, when you have time information to automatically orient the edges.
 
 See pcp_demo.m for a demo of both functions. The demo also demonstrates how to control or estimate the FDR.
 
