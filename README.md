@@ -14,7 +14,7 @@ There are basically four main functions:
 
 1. PC_with_pval -- this is PC-p.
 2. stable_skeleton_discovery -- PC-stable's skeleton discovery procedure with p-values; suitable, for example, when you have time information to automatically orient the edges.
-3. control_FDR -- controls the FDR at a given level FDR level q and outputs an FDR corrected graph
+3. control_FDR -- controls the FDR at a given FDR level q and outputs an FDR corrected graph
 4. estimate_FDR -- estimates the FDR for a given graph
 
 See pcp_demo.m for a demo of the functions.
