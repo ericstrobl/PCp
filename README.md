@@ -19,4 +19,4 @@ See pcp_demo.m for a demo of both functions. The demo also demonstrates how to c
 
 Please let me know if you find any bugs or have any suggestions by emailing me at ericvonstrobl at google's email dot com.
 
-Coded using scripts from the Bayes Net Toolbox as a base (https://github.com/bayesnet/bnt).
+Coded using scripts from the Bayes Net Toolbox as a base (https://github.com/bayesnet/bnt). Tested on MATLAB 2015a.
