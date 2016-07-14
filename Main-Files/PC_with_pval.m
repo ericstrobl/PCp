@@ -30,7 +30,7 @@ function [pdag,p_val,IDs] = PC_with_pval(cond_indep, alpha, k, d, n, varargin)
 % 3) IDs = unique identifier per edge-specific hypothesis test
 %
 % Example call: 
-% [pdag,p_val,IDs] = PC_with_pval(@rho_test_PC, 0.20, 3, data);
+% [pdag,p_val,IDs] = PC_with_pval(@lin_test_PC, [], [], size(data,2),size(data,1),data);
 %
 % Code written by Eric V. Strobl using the Bayes Net Toolbox
 % (https://github.com/bayesnet/bnt) as a base.

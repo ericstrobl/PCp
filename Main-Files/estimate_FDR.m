@@ -1,16 +1,17 @@
-function FDR_est=estimate_FDR(p_val,IDs,alpha_thres)
+function FDR_est=estimate_FDR(p_val, IDs, alpha_thres)
 %
 % Approximates FDR with Benjamini-Yekutielli FDR estimate
 %
 % Inputs:
 % 1) p_val = edge-specific p-values
-% 2) alpha_thres = some alpha threshold (e.g., 0.05)
+% 2) IDs = unique identifier per edge-specific hypothesis test
+% 3) alpha_thres = some alpha threshold (e.g., 0.05)
 %
 % Outputs:
 % 1) FDR_est = FDR estimate
 %
 % Example call: 
-% FDR=get_FDR(p_val,0.05);
+% FDR = estimate_FDR(p_val,0.05);
 %
 
 [~,idx]=unique(IDs);

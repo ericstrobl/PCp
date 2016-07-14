@@ -15,7 +15,7 @@ function [pdag_adj,alpha_star] = control_FDR(pdag, p_val, IDs, q)
 % 2) alpha_star
 %
 % Example call: 
-% alpha_star = get_alpha_star(0.10, p_val, IDs);
+% [pdag_adj,alpha_star] = control_FDR(pdag,p_val, IDs, 0.05);
 %
 
 
