@@ -21,16 +21,23 @@ for i=1:length(X)
           % p-value
           p2=[];
           ii1 = find(G(x,:)>0); % neighbors of x
+          
+          if isempty(k),
+              k1 = length(ii1);
+          else
+              k1 = k;
+          end
+          
 %           ii1 = mysetdiff(ii1,x);
           SS1a=[];
-          for kk=1:k,
+          for kk=1:k1,
               if length(ii1)>1,
                  SS1=nchoosek(ii1,kk);
-                 SS1=[SS1 zeros(size(SS1,1),k-kk)];
+                 SS1=[SS1 zeros(size(SS1,1),k1-kk)];
                  SS1a=[SS1a; SS1];
               else
                  SS1=ii1;
-                 SS1=[SS1 zeros(size(SS1,1),k-1)];
+                 SS1=[SS1 zeros(size(SS1,1),k1-1)];
                  SS1a=[SS1a; SS1];
                  break;
               end
@@ -39,14 +46,14 @@ for i=1:length(X)
           ii2 = find(G(z,:)>0); % neighbors of z
 %           ii2 = mysetdiff(ii2,z);
           SS2a=[];
-          for kk=1:k,
+          for kk=1:k1,
               if length(ii2)>1,
                  SS2=nchoosek(ii2,kk);
-                 SS2=[SS2 zeros(size(SS2,1),k-kk)];
+                 SS2=[SS2 zeros(size(SS2,1),k1-kk)];
                  SS2a=[SS2a; SS2];
               else
                  SS2=ii2;
-                 SS2=[SS2 zeros(size(SS2,1),k-1)];
+                 SS2=[SS2 zeros(size(SS2,1),k1-1)];
                  SS2a=[SS2a; SS2];
                  break;
               end
