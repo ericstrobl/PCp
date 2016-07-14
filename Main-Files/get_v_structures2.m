@@ -21,9 +21,10 @@ for i=1:length(X)
           % p-value
           p2=[];
           ii1 = find(G(x,:)>0); % neighbors of x
+          ii2 = find(G(z,:)>0); % neighbors of z
           
           if isempty(k),
-              k1 = length(ii1);
+              k1 = max([length(ii1),length(ii2)]);
           else
               k1 = k;
           end
@@ -42,8 +43,7 @@ for i=1:length(X)
                  break;
               end
           end
-  
-          ii2 = find(G(z,:)>0); % neighbors of z
+          
 %           ii2 = mysetdiff(ii2,z);
           SS2a=[];
           for kk=1:k1,
