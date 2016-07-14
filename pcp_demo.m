@@ -1,7 +1,8 @@
 clear all
 clc
 
-%load a DAG, generate a Gaussian dataset
+%% load a DAG, generate a Gaussian dataset
+
 load DAG_graph1.mat
 % load DAG_graph2.mat
 % load DAG_graph3.mat
@@ -11,7 +12,8 @@ load DAG_graph1.mat
 d = size(graph,2);
 data=create_dataset_dag(graph,10000,randn(d,d));
 
-%%
+%% running PC-p
+
 %get pdag with raw p-values using Fizher's z test
 [pdag,p_val,IDs] = PC_with_pval(@lin_test_PC, [], [], size(data,2),size(data,1),data);
 
@@ -21,11 +23,11 @@ q=0.1;
 
 %estimate the FDR at a given alpha threshold
 alpha=0.05;
-FDR_est=estimate_FDR(p_val,IDs,alpha)
+FDR_est = estimate_FDR(p_val,IDs,alpha)
 
 
+%% running PC-stable's skeleton discovery procedure
 
-%%
 %get skeleton with raw p-values
 [pdag_sk, ~, p_val_sk, IDs_sk] = stable_skeleton_discovery(@lin_test_PC, [], [], size(data,2), size(data,1),data);
 
@@ -35,7 +37,7 @@ q=0.1;
 
 %estimate the FDR at a given alpha threshold
 alpha=0.05;
-FDR_est=estimate_FDR(p_val_sk, IDs_sk, alpha)
+FDR_est = estimate_FDR(p_val_sk, IDs_sk, alpha)
 
 
 
