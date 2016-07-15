@@ -7,7 +7,7 @@ This is a MATLAB implementation of the PC with p-values (PC-p) algorithm. The al
 
 PC-p subsequently controls the false discovery rate (FDR) across every edge, so you don't have to worry about multiple comparison problems.
 
-The associated manuscript is currently under submission.
+The associated manuscript is currently under submission (arXiv: http://arxiv.org/abs/1607.03975).
 
 # The Files
 There are basically four main functions: 
