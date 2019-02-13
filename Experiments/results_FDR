@@ -1,6 +1,6 @@
 datasets=1:100; %%
 p_thres=10.^linspace(-10,log10(0.05),100);
-alphas=[0.01 0.05 0.1 0.2/sqrt(1755/500) 0.2];
+types = ['LD','HD','CYTO'];
 
 results_d_nostablenolock=zeros(length(p_thres),length(alphas),length(dataset));
 results_d_nostable=zeros(length(p_thres),length(alphas),length(dataset));
@@ -17,71 +17,105 @@ load('D:\MATLAB\p_values_PC\CYTO_graphs\CYTO_Dlingam.mat'); graph=Bsig>0;
 
 for d=1:length(datasets),
     disp(d)
-    for a=1:length(alphas);
+    for t=1:length(types);
     
-            load(['D:\MATLAB\p_values_PC\CYTO_graphs\PC_pcp_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
+        %% PCp
+        if types(t) == 'LD',
+            load(['PC_pcp_graphLD1_real' num2str(d) '_' num2str(a) '.mat'])
+        elseif types (t) == 'HD',
+            load(['PC_pcp_graphHD1_real' num2str(d) '_' num2str(a) '.mat'])
+        elseif types(t)=='CYTO',
+            load(['PC_pcp_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
             graph=Bsig>0;
-            for pt1=1:length(p_thres),
-                fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
-                results_d_pcp(pt1,a,d)=fdr_e;
+        end
+        for pt1=1:length(p_thres),
+            fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
+            results_d_pcp(pt1,a,d)=fdr_e;
+        end
+        
+        %% PC
+        if types(t) == 'LD',
+            load(['PC_original_graphLD1_real' num2str(d) '_' num2str(a) '.mat'])
+        elseif types (t) == 'HD',
+            load(['PC_original_graphHD1_real' num2str(d) '_' num2str(a) '.mat'])
+        elseif types(t)=='CYTO',
+            load(['PC_original_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
+            graph=Bsig>0;
+        end   
+        for pt1=1:length(p_thres),
+            fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
+            results_d_original(pt1,a,d)=fdr_e;
+        end
+        
+        %% PC-p without robust p-values
+        if types(t) == 'LD',
+            load(['PC_norobust_graphLD1_real' num2str(d) '_' num2str(a) '.mat'])
+        elseif types (t) == 'HD',
+            load(['PC_norobust_graphHD1_real' num2str(d) '_' num2str(a) '.mat'])
+        elseif types(t)=='CYTO',
+            load(['PC_norobust_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
+            graph=Bsig>0;
+        end       
+        for pt1=1:length(p_thres),
+            fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
+            results_d_pcpnorobust(pt1,a,d)=fdr_e;
+        end
+        
+        %% PC-p without stabilization
+        if types(t) == 'LD',
+            load(['PC_nostable_graphLD1_real' num2str(d) '_' num2str(a) '.mat'])
+        elseif types (t) == 'HD',
+            load(['PC_nostable_graphHD1_real' num2str(d) '_' num2str(a) '.mat'])
+        elseif types(t)=='CYTO',
+            load(['PC_nostable_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
+            graph=Bsig>0;
+        end       
+        for pt1=1:length(p_thres),
+            fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
+            results_d_pcpnostable(pt1,a,d)=fdr_e;
+        end
+        
+        %% PC-p without ambiguation
+        if types(t) == 'LD',
+            load(['PC_noambig_graphLD1_real' num2str(d) '_' num2str(a) '.mat'])
+        elseif types (t) == 'HD',
+            load(['PC_noambig_graphHD1_real' num2str(d) '_' num2str(a) '.mat'])
+        elseif types(t)=='CYTO',
+            load(['PC_noambig_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
+            graph=Bsig>0;
+        end       
+        for pt1=1:length(p_thres),
+            fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
+            results_d_pcpnoambig(pt1,a,d)=fdr_e;
+        end
+        
+        %% PC-p without stabilization and ambiguation
+        if types(t) == 'LD',
+            load(['PC_nostablenoambig_graphLD1_real' num2str(d) '_' num2str(a) '.mat'])
+        elseif types (t) == 'HD',
+            load(['PC_nostablenoambig_graphHD1_real' num2str(d) '_' num2str(a) '.mat'])
+        elseif types(t)=='CYTO',
+            load(['PC_nostablenoambig_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
+            graph=Bsig>0;
+        end       
+        for pt1=1:length(p_thres),
+            fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
+            results_d_pcpnostablenoambig(pt1,a,d)=fdr_e;
+        end
 
-                fdr_e=get_emp_fdr_learned_un(Gt,graph,cell_pt,p_thres(pt1));
-                results_u_pcp(pt1,a,d)=fdr_e;
-            end
-            
-            load(['D:\MATLAB\p_values_PC\CYTO_graphs\PC_original_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
-            for pt1=1:length(p_thres),
-                fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
-                results_d_original(pt1,a,d)=fdr_e;
-
-                fdr_e=get_emp_fdr_learned_un(Gt,graph,cell_pt,p_thres(pt1));
-                results_u_original(pt1,a,d)=fdr_e;
-            end
-            
-            load(['D:\MATLAB\p_values_PC\CYTO_graphs\PC_pcpnorobust_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
-            for pt1=1:length(p_thres),
-                fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
-                results_d_pcpnorobust(pt1,a,d)=fdr_e;
-
-                fdr_e=get_emp_fdr_learned_un(Gt,graph,cell_pt,p_thres(pt1));
-                results_u_pcpnorobust(pt1,a,d)=fdr_e;
-            end
-            
-            load(['D:\MATLAB\p_values_PC\CYTO_graphs\PC_nostable_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
-            for pt1=1:length(p_thres),
-                fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
-                results_d_nostable(pt1,a,d)=fdr_e;
-
-                fdr_e=get_emp_fdr_learned_un(Gt,graph,cell_pt,p_thres(pt1));
-                results_u_nostable(pt1,a,d)=fdr_e;
-            end
-
-            load(['D:\MATLAB\p_values_PC\CYTO_graphs\PC_nolock_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
-            for pt1=1:length(p_thres),
-                fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
-                results_d_nolock(pt1,a,d)=fdr_e;
-
-                fdr_e=get_emp_fdr_learned_un(Gt,graph,cell_pt,p_thres(pt1));
-                results_u_nolock(pt1,a,d)=fdr_e;
-            end
-            
-            load(['D:\MATLAB\p_values_PC\CYTO_graphs\PC_nostablenolock_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
-            for pt1=1:length(p_thres),
-                fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
-                results_d_nostablenolock(pt1,a,d)=fdr_e;
-
-                fdr_e=get_emp_fdr_learned_un(Gt,graph,cell_pt,p_thres(pt1));
-                results_u_nostablenolock(pt1,a,d)=fdr_e;
-            end
-            
-            load(['D:\MATLAB\p_values_PC\CYTO_graphs\PC_mmpc_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
-            for pt1=1:length(p_thres),
-                fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
-                results_d_mmpc(pt1,a,d)=fdr_e;
-
-                fdr_e=get_emp_fdr_learned_un(Gt,graph,cell_pt,p_thres(pt1));
-                results_u_mmpc(pt1,a,d)=fdr_e;
-            end
+        %% MMPC
+        if types(t) == 'LD',
+            load(['MMPC_graphLD1_real' num2str(d) '_' num2str(a) '.mat'])
+        elseif types (t) == 'HD',
+            load(['MMPC_graphHD1_real' num2str(d) '_' num2str(a) '.mat'])
+        elseif types(t)=='CYTO',
+            load(['MMPC_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
+            graph=Bsig>0;
+        end       
+        for pt1=1:length(p_thres),
+            fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
+            results_d_mmpc(pt1,a,d)=fdr_e;
+        end
+       
     end
-%         save('bias1.mat','results_d','results_u')
 end
