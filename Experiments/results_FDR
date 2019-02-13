@@ -1,6 +1,7 @@
 datasets=1:100; %%
 p_thres=10.^linspace(-10,log10(0.05),100);
 types = ['LD','HD','CYTO'];
+a = 2;
 
 results_d_nostablenolock=zeros(length(p_thres),length(alphas),length(dataset));
 results_d_nostable=zeros(length(p_thres),length(alphas),length(dataset));
