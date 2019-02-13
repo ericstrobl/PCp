@@ -9,6 +9,10 @@ PC-p subsequently estimates and/or controls the false discovery rate (FDR) acros
 
 The associated manuscript is currently under submission (arXiv: http://arxiv.org/abs/1607.03975).
 
+# Installation
+
+Download all of the files and add all subfolders to your MATLAB path.
+
 # The Files
 There are basically four main functions: 
 
