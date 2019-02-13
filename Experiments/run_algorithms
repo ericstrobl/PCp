@@ -4,7 +4,7 @@
 
 n= 1000;
 k=10;
-alphas=[0.01 0.05 0.2/sqrt(n/250) 0.2];
+alphas=[0.01 0.2/sqrt(n/250)];
 
 for g=1:100,
     disp(g)
@@ -138,7 +138,7 @@ graph=Bsig>0;
 
 n=size(data,1);
 k=10;
-alphas=[0.01 0.05 0.2/sqrt(n/250) 0.1 0.2];
+alphas=[0.01 0.2/sqrt(n/250)];
 
 
 [r,~]=size(data);
