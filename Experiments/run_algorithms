@@ -57,7 +57,7 @@ for g=1:100,
                 [Gt,sep,cell_pt,num_struct]=MMPC_p(@gaussCItest, size(data,2), k, alphas(a), Ct, n);
                 [pdag,cell_p,num_struc,G]=PC_p(Gt, sep, cell_pt, num_struct, k, @gaussCItest, Ct, n);
                 time=toc;
-                save(['PC_mmpc_graphLD1_synth' num2str(g) '_' num2str(a) '.mat'],'pdag','cell_p','num_struc','Gt','cell_pt','num_struct','time','B')
+                save(['MMPC_graphLD1_synth' num2str(g) '_' num2str(a) '.mat'],'pdag','cell_p','num_struc','Gt','cell_pt','num_struct','time','B')
                 
     end
     
@@ -119,7 +119,7 @@ for g=1:100,
                 [Gt,sep,cell_pt,num_struct]=MMPC_p(@gaussCItest, size(data,2), k, alphas(a), Ct, n);
                 [pdag,cell_p,num_struc,G]=PC_p(Gt, sep, cell_pt, num_struct, k, @gaussCItest, Ct, n);
                 time=toc;
-                save(['PC_mmpc_graphHD1_synth' num2str(g) '_' num2str(a) '.mat'],'pdag','cell_p','num_struc','Gt','cell_pt','num_struct','time','B')
+                save(['MMPC_graphHD1_synth' num2str(g) '_' num2str(a) '.mat'],'pdag','cell_p','num_struc','Gt','cell_pt','num_struct','time','B')
                 
     end
     
@@ -192,7 +192,7 @@ for g=1:100,
                 [Gt,sep,cell_pt,num_struct]=MMPC_p(@gaussCItest, size(data,2), k, alphas(a), Ct, n);
                 [pdag,cell_p,num_struc,G]=PC_p(Gt, sep, cell_pt, num_struct, k, @gaussCItest, Ct, n);
                 time=toc;
-                save(['PC_mmpc_graphCYTO1_real' num2str(g) '_' num2str(a) '.mat'],'pdag','cell_p','num_struc','Gt','cell_pt','num_struct','time')
+                save(['MMPC_graphCYTO1_real' num2str(g) '_' num2str(a) '.mat'],'pdag','cell_p','num_struc','Gt','cell_pt','num_struct','time')
                 
     end
     
