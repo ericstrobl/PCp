@@ -16,7 +16,7 @@ Download all of the files and add all subfolders to your MATLAB path.
 # Run PC-p
 There are basically four main functions: 
 
-> [pdag,p_val,IDs] = PC_with_pval(@gaussCItest, [], [], size(data,2),size(data,1),data);
+> [pdag,p_vals] = PC_with_pval(@gaussCItest, [], [], size(data,2),size(data,1),data);
 
 See `pcp_demo.m` for a demo of the functions.
 
