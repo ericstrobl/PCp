@@ -13,13 +13,10 @@ The associated manuscript is currently under submission (arXiv: http://arxiv.org
 
 Download all of the files and add all subfolders to your MATLAB path.
 
-# The Files
+# Run PC-p
 There are basically four main functions: 
 
-1. `PC_with_pval.m` -- this is PC-p.
-2. `stable_skeleton_discovery.m` -- PC-stable's skeleton discovery procedure with p-values; suitable, for example, when you have time information to automatically orient the edges.
-3. `control_FDR.m` -- controls the FDR at a given FDR level q and outputs an FDR corrected graph
-4. `estimate_FDR.m` -- estimates the FDR for a given graph
+> [pdag,p_val,IDs] = PC_with_pval(@gaussCItest, [], [], size(data,2),size(data,1),data);
 
 See `pcp_demo.m` for a demo of the functions.
 
