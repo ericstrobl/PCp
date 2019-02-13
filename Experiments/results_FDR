@@ -1,0 +1,87 @@
+datasets=1:100; %%
+p_thres=10.^linspace(-10,log10(0.05),100);
+alphas=[0.01 0.05 0.1 0.2/sqrt(1755/500) 0.2];
+
+results_d_nostablenolock=zeros(length(p_thres),length(alphas),length(dataset));
+results_d_nostable=zeros(length(p_thres),length(alphas),length(dataset));
+results_d_nolock=zeros(length(p_thres),length(alphas),length(dataset));
+results_d_pcp=zeros(length(p_thres),length(alphas),length(dataset));
+results_d_pcpnorobust=zeros(length(p_thres),length(alphas),length(dataset));
+results_d_original=zeros(length(p_thres),length(alphas),length(dataset));
+results_d_mmpc=zeros(length(p_thres),length(alphas),length(dataset));
+
+% load('D:\MATLAB\p_values_PC\CYTO_graphs\CYTO_graphs\cyto_graph_pclearned_LINGAM.mat')
+% load('D:\MATLAB\Causal\Causal_Explorer\Data\cyto_h_graph.mat')
+% load('D:\MATLAB\p_values_PC\CYTO_graphs\GDP\graph_GDP2.mat')
+load('D:\MATLAB\p_values_PC\CYTO_graphs\CYTO_Dlingam.mat'); graph=Bsig>0;
+
+for d=1:length(datasets),
+    disp(d)
+    for a=1:length(alphas);
+    
+            load(['D:\MATLAB\p_values_PC\CYTO_graphs\PC_pcp_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
+            graph=Bsig>0;
+            for pt1=1:length(p_thres),
+                fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
+                results_d_pcp(pt1,a,d)=fdr_e;
+
+                fdr_e=get_emp_fdr_learned_un(Gt,graph,cell_pt,p_thres(pt1));
+                results_u_pcp(pt1,a,d)=fdr_e;
+            end
+            
+            load(['D:\MATLAB\p_values_PC\CYTO_graphs\PC_original_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
+            for pt1=1:length(p_thres),
+                fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
+                results_d_original(pt1,a,d)=fdr_e;
+
+                fdr_e=get_emp_fdr_learned_un(Gt,graph,cell_pt,p_thres(pt1));
+                results_u_original(pt1,a,d)=fdr_e;
+            end
+            
+            load(['D:\MATLAB\p_values_PC\CYTO_graphs\PC_pcpnorobust_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
+            for pt1=1:length(p_thres),
+                fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
+                results_d_pcpnorobust(pt1,a,d)=fdr_e;
+
+                fdr_e=get_emp_fdr_learned_un(Gt,graph,cell_pt,p_thres(pt1));
+                results_u_pcpnorobust(pt1,a,d)=fdr_e;
+            end
+            
+            load(['D:\MATLAB\p_values_PC\CYTO_graphs\PC_nostable_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
+            for pt1=1:length(p_thres),
+                fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
+                results_d_nostable(pt1,a,d)=fdr_e;
+
+                fdr_e=get_emp_fdr_learned_un(Gt,graph,cell_pt,p_thres(pt1));
+                results_u_nostable(pt1,a,d)=fdr_e;
+            end
+
+            load(['D:\MATLAB\p_values_PC\CYTO_graphs\PC_nolock_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
+            for pt1=1:length(p_thres),
+                fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
+                results_d_nolock(pt1,a,d)=fdr_e;
+
+                fdr_e=get_emp_fdr_learned_un(Gt,graph,cell_pt,p_thres(pt1));
+                results_u_nolock(pt1,a,d)=fdr_e;
+            end
+            
+            load(['D:\MATLAB\p_values_PC\CYTO_graphs\PC_nostablenolock_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
+            for pt1=1:length(p_thres),
+                fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
+                results_d_nostablenolock(pt1,a,d)=fdr_e;
+
+                fdr_e=get_emp_fdr_learned_un(Gt,graph,cell_pt,p_thres(pt1));
+                results_u_nostablenolock(pt1,a,d)=fdr_e;
+            end
+            
+            load(['D:\MATLAB\p_values_PC\CYTO_graphs\PC_mmpc_graphCYTO1_real' num2str(d) '_' num2str(a) '.mat'])
+            for pt1=1:length(p_thres),
+                fdr_e=get_emp_fdr_learned(pdag,graph,cell_p,p_thres(pt1),num_struc);
+                results_d_mmpc(pt1,a,d)=fdr_e;
+
+                fdr_e=get_emp_fdr_learned_un(Gt,graph,cell_pt,p_thres(pt1));
+                results_u_mmpc(pt1,a,d)=fdr_e;
+            end
+    end
+%         save('bias1.mat','results_d','results_u')
+end
