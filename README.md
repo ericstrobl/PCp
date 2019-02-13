@@ -13,11 +13,11 @@ The associated manuscript is currently under submission (arXiv: http://arxiv.org
 There are basically four main functions: 
 
 1. `PC_with_pval.m` -- this is PC-p.
-2. stable_skeleton_discovery -- PC-stable's skeleton discovery procedure with p-values; suitable, for example, when you have time information to automatically orient the edges.
-3. control_FDR -- controls the FDR at a given FDR level q and outputs an FDR corrected graph
-4. estimate_FDR -- estimates the FDR for a given graph
+2. `stable_skeleton_discovery.m` -- PC-stable's skeleton discovery procedure with p-values; suitable, for example, when you have time information to automatically orient the edges.
+3. `control_FDR.m` -- controls the FDR at a given FDR level q and outputs an FDR corrected graph
+4. `estimate_FDR.m` -- estimates the FDR for a given graph
 
-See pcp_demo.m for a demo of the functions.
+See `pcp_demo.m` for a demo of the functions.
 
 Please let me know if you find any bugs or have any suggestions by emailing me at ericvonstrobl at google's email dot com.
 
@@ -25,6 +25,6 @@ Coded using scripts from the Bayes Net Toolbox as a base (https://github.com/bay
 
 # Reproduce Experimental Results
 
-Run run_algorithms.m to collect algorithm outputs
+Run `run_algorithms.m` to collect algorithm outputs
 
-Run get_results.m to collect mean FDR, control bias and estimation bias results
+Run `get_results.m` to collect mean FDR, control bias and estimation bias results
