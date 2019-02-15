@@ -41,7 +41,7 @@ if isempty(alpha),
     end
 end
 
-[G, sep, cell_p, num_struc] = get_skeleton_lin_stable(cond_indep, d, k, alpha, varargin{:});
+[G, sep, cell_p, num_struc] = get_skeleton_stable(cond_indep, d, k, alpha, varargin{:});
 
 [pdag, cell_p2, num_struc2] = get_v_structures2(G, sep, cell_p, num_struc, k, cond_indep, varargin{:}); % get v-structures, unconstrained edge directions
 
