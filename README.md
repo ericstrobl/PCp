@@ -1,6 +1,6 @@
 # PC with p-values (PC-p)
 
-This is a MATLAB implementation of the PC with p-values (PC-p) algorithm. The algorithm returns edge-specific p-values for all edges in the output of PC. The algorithm then estimates and/or controls the false discovery rate (FDR) across every edge, so you don't have to worry about multiple comparisons.
+This is a MATLAB implementation of the PC with p-values (PC-p) algorithm. The algorithm returns p-values for each edge in the output of PC. The algorithm then estimates and/or controls the false discovery rate (FDR) of PC's output, so you don't have to worry about multiple comparisons.
 
 The associated manuscript is currently under submission (arXiv: http://arxiv.org/abs/1607.03975).
 
