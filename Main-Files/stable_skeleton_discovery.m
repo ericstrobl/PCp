@@ -34,9 +34,8 @@ function [G, sep, p_val, IDs] = stable_skeleton_discovery(cond_indep, k, d, n, a
 %
 
 if isempty(alpha),
-%     alpha=0.20;
-    if n<=500, alpha=0.20;
-    else alpha=0.20/sqrt(n/500);
+    if n<=250, alpha=0.20;
+    else alpha=0.20/sqrt(n/250);
     end
 end
   
