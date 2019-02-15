@@ -13,7 +13,7 @@ data=create_dataset_dag(B>0,n,B);
 
 %get pdag with raw p-values using Fizher's z test
 C=corr(data);
-[pdag,p_val,IDs] = PC_with_pval(@gaussCItest, [], size(data,2),n,[],C,n);
+[pdag,p_val,IDs] = PC_with_pval(@gaussCItest, [], [], size(data,2),n,C,n);
 
 %control the FDR at a given FDR level q
 q=0.1;
@@ -22,6 +22,3 @@ q=0.1;
 %estimate the FDR at a given alpha threshold
 alpha=0.05;
 FDR_est = estimate_FDR(p_val,IDs,alpha)
-
-
-
