@@ -24,4 +24,4 @@ See `pcp_demo.m` for a demo of the functions.
 
 Run `run_algorithms.m` to collect algorithm outputs
 
-Run `get_results.m` to collect mean FDR, control bias and estimation bias results
+Then run `get_results.m` to collect mean FDR, control bias and estimation bias results
