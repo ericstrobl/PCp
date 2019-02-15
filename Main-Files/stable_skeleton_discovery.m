@@ -1,4 +1,4 @@
-function [G, sep, p_val, IDs] = stable_skeleton_discovery(cond_indep, alpha, k, d, n, varargin)
+function [G, sep, p_val, IDs] = stable_skeleton_discovery(cond_indep, k, d, n, alpha, varargin)
 %
 % PC-stable's skeleton discovery procedure
 %
