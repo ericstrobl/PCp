@@ -14,9 +14,7 @@ function [pdag,p_val,IDs] = PC_with_pval(cond_indep, alpha, k, d, n, varargin)
 % alpha=0.20 no matter what sample size. The theory says that the alpha
 % threshold should be high *for the problem at hand*, so the Type II error 
 % rate is low.
-% 3) k = maximum conditioning set size. If empty, algorithm dynamically 
-% adjusts the conditioning set size for each node according to whatever 
-% size is necessary. Set this if you know the maximum in-degree.
+% 3) k = maximum conditioning set size. If empty, k=Inf.
 % 4) d = number of variables
 % 5) n = number of samples
 % 6) varargin = stuff necessary for the conditional independence test
@@ -38,8 +36,8 @@ function [pdag,p_val,IDs] = PC_with_pval(cond_indep, alpha, k, d, n, varargin)
 
 if isempty(alpha),
 %     alpha=0.20;
-    if n<=500, alpha=0.20;
-    else alpha=0.20/sqrt(n/500);
+    if n<=250, alpha=0.20;
+    else alpha=0.20/sqrt(n/250);
     end
 end
 
